@@ -1,6 +1,8 @@
 package com.company;
 
+import com.company.creatures.Animal;
 import com.company.devices.Car;
+import com.company.devices.Devices;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -12,6 +14,8 @@ public class Human {
     public String lastName;
     private Double salary;
     Car[] garage;
+    Animal[] stable;
+    Devices[] goods;
     private LocalDate previousCheck;
     private Double previousSalary;
     public Double cash;
@@ -108,6 +112,60 @@ public class Human {
         for(int i = 0; i < garage.length;i++) {
             if(garage[i] == oldCar){
                 garage[i] = null;
+                break;
+            }
+        }
+    }
+
+    public boolean hasAnimal(Animal animalWelookingFor) {
+        for (Animal animal : this.stable){
+            if(animal == animalWelookingFor){
+                return  true;
+            }
+        }
+        return false;
+    }
+
+    public void addAnimal(Animal newAnimal) {
+        for(int i = 0; i < stable.length; i++){
+            if(stable[i] == null){
+                stable[i] = newAnimal;
+                break;
+            }
+        }
+    }
+
+    public void removeAnimal(Animal oldAnimal) {
+        for(int i = 0; i < stable.length;i++) {
+            if(stable[i] == oldAnimal){
+                stable[i] = null;
+                break;
+            }
+        }
+    }
+
+    public boolean hasDevice(Devices deviceWeLookingFor) {
+        for (Devices device : this.goods){
+            if(device == deviceWeLookingFor){
+                return  true;
+            }
+        }
+        return false;
+    }
+
+    public void addDevice(Devices newDevice) {
+        for(int i = 0; i < goods.length; i++){
+            if(goods[i] == null){
+                goods[i] = newDevice;
+                break;
+            }
+        }
+    }
+
+    public void removeDevice(Devices oldDevice) {
+        for(int i = 0; i < goods.length;i++) {
+            if(goods[i] == oldDevice){
+                goods[i] = null;
                 break;
             }
         }

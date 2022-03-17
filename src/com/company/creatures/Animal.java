@@ -1,4 +1,5 @@
 package com.company.creatures;
+import com.company.Human;
 import com.company.Sellable;
 
 public abstract class Animal implements Feedable,Sellable  {
@@ -38,6 +39,21 @@ public abstract class Animal implements Feedable,Sellable  {
         }
     }
 
+    @Override
+    public void sell(Human seller, Human buyer, Double price)throws Exception {
+        if(buyer.cash < price){
+            throw new Exception("Sorry you can not buy it");
+        }
+        if(!seller.hasAnimal(this)){
+            throw new Exception("Sorry there is nothing to sell");
+        }
+        else{
+            buyer.addAnimal(this);
+            seller.removeAnimal(this);
+            buyer.cash -= price;
+            seller.cash += price;
 
+        }
+    }
 }
 
