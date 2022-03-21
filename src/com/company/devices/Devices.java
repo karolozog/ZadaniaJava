@@ -5,7 +5,7 @@ import com.company.Human;
 public abstract class Devices implements Sellable {
     final String model;
     final String producer;
-    int yearOfProduction;
+    public int yearOfProduction;
     public Double value;
 
     public Devices(String model,String producer, Double value) {
@@ -18,12 +18,13 @@ public abstract class Devices implements Sellable {
         return producer + " " + model + " " + yearOfProduction;
     }
 
-    public abstract void turnOn();
+    public abstract String turnOn();
+
 
     @Override
     public void sell(Human seller, Human buyer, Double price)throws Exception {
         if(buyer.cash < price){
-            throw new Exception("Sorry you can not buy it");
+            throw new Exception("Sorry you do not have enough money");
         }
         if(!seller.hasDevice(this)){
             throw new Exception("Sorry there is nothing to sell");

@@ -1,19 +1,30 @@
 package com.company.devices;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.company.devices.Application.DEFAULT_APP_VERSION;
 
-public class Phone extends Devices {
+public class Phone extends Devices{
 
     static final String DEFAULT_DOWNLOAD_ADDRESS = "appstore.com/";
     static final String DEFAULT_PROTOCOL = "http://";
+    public OpertionSystem operationSystem;
+    public enum OpertionSystem{
+        ANDROID, WINDOWS_MOBILE, iOS
+    };
     List<Application> installedApps = new ArrayList<>();
     Double balance;
     boolean bluetooth;
     Double osVersion;
     Boolean installed = true;
+    Double screenSize;
+    OpertionSystem opertionSystem;
+
+    @Override
+    public String turnOn() { return this.producer + "Hello mate";}
+
+
+
+
 
  /*   public Phone(String model, String producer, boolean bluetooth, int yearOfProduction, Double osVersion, Double value) {
         super(model, value);
@@ -25,10 +36,6 @@ public class Phone extends Devices {
     public Phone(String model, String producer, Double value, Double balance) {
         super(model, producer, value);
         this.balance = balance;
-    }
-
-    public void turnOn() {
-        System.out.println("Hello mate");
     }
 
 
@@ -44,29 +51,19 @@ public class Phone extends Devices {
         }
     }
 
-    public void isInstalled(Object appName)throws Exception{
-        if(installedApps.contains(appName)){
-            throw new Exception(appName + " is installed on your device");
-        } else throw new Exception(appName + " is not installed on your device");
+ /*   public void installAnnApp(String appName, Double appVersion) {
+        System.out.println(appName + " " + " is installed");
+        installedApps.add((installApp.(appName););
+    }*/
+
+    public boolean isInstalled(List appName) {
+        for (Application installedApps : this.installedApps) {
+            if (installedApps == appName) {
+                return true;
+            }
+        }
+        return false;
     }
-
-    public void installApp(Application tic) {
-    }
-
-   /*
-    @Override
-    public String toString() {
-        return "Phone{" +
-                "installedApps=" + installApps +
-                ", model='" + model + '\'' +
-                ", producer='" + producer + '\'' +
-                ", yearOfProduction=" + yearOfProduction;
-    }
-*/
-
-
-
 }
-
 
 

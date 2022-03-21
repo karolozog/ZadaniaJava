@@ -9,4 +9,9 @@ public class LPG extends Car{
     void refuel() {
         System.out.println("Car is refueled");
     }
+
+    @Override
+    public String turnOn() {
+        return this.producer + " engine is working";
+    }
 }

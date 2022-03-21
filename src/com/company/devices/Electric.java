@@ -9,4 +9,9 @@ public class Electric extends Car{
     void refuel() {
         System.out.println("Car is charged");
     }
+
+    @Override
+    public String turnOn() {
+        return this.producer + " engine is working";
+    }
 }
