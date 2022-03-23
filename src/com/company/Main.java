@@ -1,75 +1,95 @@
 package com.company;
-import com.company.creatures.Animal;
-import com.company.creatures.Pet;
+
 import com.company.devices.Car;
 import com.company.devices.Diesel;
 import com.company.devices.Electric;
-import com.company.devices.Phone;
-import java.util.ArrayList;
+import com.company.devices.LPG;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Pet dog = new Pet("canis", "Szarik", Animal.FoodType.MEET);
-        System.out.println("Pies nazywa się " + dog.name);
-        System.out.println("Pies waży " + dog.getWeight());
-        System.out.println(dog.species);
-        dog.feed();
-        System.out.println("Pies waży " + dog.getWeight());
-
-       /* dog.takeForAWalk();
-        dog.takeForAWalk();
-        dog.takeForAWalk();
-        dog.takeForAWalk();
-        dog.takeForAWalk();
-        dog.takeForAWalk();
-        dog.takeForAWalk();
-        System.out.println("Pies waży " + dog.getWeight())
-
-        FarmAnimal cow = new FarmAnimal("cow", "Jacky", "brown");
-        cow.feed();
-      */
-
-        Car honda = new Diesel("Civic", "Honda", 1995, 5000.0);
-        Car hyundai = new Diesel("Pony", "Hyundai", 1992, 5400.0);
-        Car BMW = new Electric("f20", "BMW", 2012, 11000.0);
-
-//        Human seller = new Human("Karol", 3);
-//        seller.cash = 10.0;
-//        seller.setCar(honda, 0);
-//        seller.setCar(hyundai, 1);
-//        seller.setCar(BMW, 2);
-//        System.out.println("value of garage is: " + seller.getValueOfGarage());
+//        Pet dog = new Pet("canis", "Szarik", Animal.FoodType.MEET);
+//        System.out.println("Pies nazywa się " + dog.name);
+//        System.out.println("Pies waży " + dog.getWeight());
+//        System.out.println(dog.species);
+//        dog.feed();
+//        System.out.println("Pies waży " + dog.getWeight());
 //
-//        Human buyer = new Human("Maciej", 5);
-//        buyer.cash = 20000.0;
-//        honda.sell(seller, buyer, 5000.0d);
-//        System.out.println("After transaction seller gots: " + seller.cash);
+//        dog.takeForAWalk();
+//        dog.takeForAWalk();
+//        dog.takeForAWalk();
+//        dog.takeForAWalk();
+//        dog.takeForAWalk();
+//        dog.takeForAWalk();
+//        dog.takeForAWalk();
+//        System.out.println("Pies waży " + dog.getWeight())
 
-        Human anna = new Human("anna", 5);
+        Car honda = new Diesel("Civic", "Honda", 1995, 500.0d);
+        Car hyundai = new Diesel("Pony", "Hyundai", 1992, 540.0d);
+        Car BMW = new Electric("f20", "BMW", 2012, 11000.0d);
+        Car Opel = new LPG("Vectra", "Opel", 1996, 560.0d);
+        Car Audi = new Diesel("a4", "Audi", 2001, 870.0d);
+
+        Human anna = new Human("anna","małecka", 600.3, 4);
         anna.cash = 10000.0;
-        anna.addCar(hyundai);
 
-
-
-        System.out.println("After transaction seller gots: " + anna.cash);
-        Human jacek = new Human("jacek", 1);
+        Human jacek = new Human("jacek", "placek", 1000.0, 2);
         jacek.cash = 20000.0;
 
+        Human kamil = new Human("kamil", "kowalski", 20000.0, 3);
 
-        System.out.println("After transaction seller gots: " + jacek.cash);
+        anna.addCar(hyundai);
+        anna.addCar(honda);
+        anna.addCar(BMW);
+        anna.addCar(Opel);
 
-        Phone nokia = new Phone("edge", "Nokia", 350.0, 25.0);
-        nokia.installApp("mario", 10.0);
-        nokia.installApp("tanks", 12.0);
-        nokia.installApp("tic", 1.0);
+
 //
-//        Arrays.stream(seller.garage).sorted()
-//            for (int i = 0; i < seller.garage.length;i++) {
-//                System.out.print(seller.garage[i]);
-//            }
+//        System.out.println("After transaction seller gots: " + jacek.cash);
+//        System.out.println("After transaction seller gots: " + anna.cash);
+        System.out.println(anna.garage[0]);
+        System.out.println(anna.garage[1]);
+
+        System.out.println(anna.hasACar(honda));
+        System.out.println(anna.garage[0]);
+        System.out.println(anna.garage[1]);
+        System.out.println(jacek.garage[0]);
+
+        honda.sell(anna, jacek, 500.0d);
+        honda.sell(jacek,anna, 400.0);
+        honda.sell(anna, jacek, 500.0d);
+        honda.sell(kamil, jacek, 100.1);
+
+//        System.out.println(anna.garage[0]);
+//        System.out.println(anna.garage[1]);
+//        System.out.println(jacek.garage[0]);
+//        System.out.println(jacek.garage[1]);
+//        System.out.println(anna.cash);
+//        System.out.println(jacek.cash);
+//        hyundai.sell(anna, jacek, 500.0d);
+//        System.out.println(anna.garage[0]);
+//        System.out.println(anna.garage[1]);
+//        System.out.println(jacek.garage[0]);
+//        System.out.println(jacek.garage[1]);
+//        System.out.println(anna.cash);
+//        System.out.println(jacek.cash);
+//        hy
+
+
+
+//        Human seller = new Human("karol", "ozog", 300.0, 4);
+//        seller.cash = 10.0;
+//        seller.setCar(honda,  0);
+//        seller.setCar(hyundai, 1);
+//        System.out.println(seller.getCar(1));
+//        System.out.println("value of garage is: " + seller.getValueOfGarage());
+
+//        Phone nokia = new Phone("edge", "Nokia", 350.0, 25.0);
+//        nokia.installApp("mario", 10.0);
+//        nokia.installApp("tanks", 12.0);
+//        nokia.installApp("tic", 1.0);
 //
-//        }
+
 
 //        nokia.installApp("Mario", 1.0);
 //        nokia.installApp("Mario", 1.0);
@@ -90,15 +110,18 @@ public class Main {
 //        countries[3] = Country.BAHAMAS;
 //        countries[4] = Country.BELGIUM;
 
-        System.out.println();
 
-        hyundai.sell(anna, jacek, 5000.0d);
-        ArrayList owners = new ArrayList<>();
-        System.out.println(owners);
-        System.out.println(anna.garage.length);
-        System.out.println(jacek.garage.length);
-        hyundai.sell(jacek, anna,100.0 );
-        jacek.getValueOfGarage();
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }
