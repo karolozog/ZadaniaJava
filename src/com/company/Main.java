@@ -56,9 +56,13 @@ public class Main {
         System.out.println(jacek.garage[0]);
 
         honda.sell(anna, jacek, 500.0d);
-        honda.sell(jacek,anna, 400.0);
+        honda.sell( jacek,anna, 500.0d);
         honda.sell(anna, jacek, 500.0d);
-        honda.sell(kamil, jacek, 100.1);
+        honda.sell( jacek,anna, 500.0d);
+        honda.sell(anna, jacek, 500.0d);
+
+        System.out.println(honda.didSaleCar(anna, kamil));
+        System.out.println(honda.transactionCounter());
 
 //        System.out.println(anna.garage[0]);
 //        System.out.println(anna.garage[1]);

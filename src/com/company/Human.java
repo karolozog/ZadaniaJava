@@ -100,6 +100,8 @@ public class Human  {
         throw new Exception("there is no such car in garage");
     }
 
+
+
     public boolean hasFreeParkingLot()throws  Exception{
         for(int i = 0; i < this.garage.length;i++){
             if(this.garage[i] == null);
