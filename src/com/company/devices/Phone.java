@@ -1,69 +1,81 @@
 package com.company.devices;
+
 import java.util.ArrayList;
 import java.util.List;
-import static com.company.devices.Application.DEFAULT_APP_VERSION;
 
-public class Phone extends Devices{
-
+public class Phone extends Devices {
     static final String DEFAULT_DOWNLOAD_ADDRESS = "appstore.com/";
     static final String DEFAULT_PROTOCOL = "http://";
     public OpertionSystem operationSystem;
-    public enum OpertionSystem{
-        ANDROID, WINDOWS_MOBILE, iOS
-    };
-    List<Application> installedApps = new ArrayList<>();
+
+    public enum OpertionSystem {
+        ANDROID, WINDOWS_MOBILE, iOS;
+    }
+
     Double balance;
     boolean bluetooth;
     Double osVersion;
-    Boolean installed = true;
     Double screenSize;
     OpertionSystem opertionSystem;
+    List installedAppsList = new ArrayList<>();
+    List freeAppsList;
 
     @Override
-    public String turnOn() { return this.producer + "Hello mate";}
+    public String turnOn() {
+        return this.producer + "Hello mate";
+    }
 
-
-
-
-
- /*   public Phone(String model, String producer, boolean bluetooth, int yearOfProduction, Double osVersion, Double value) {
-        super(model, value);
-        this.bluetooth = true;
+    public Phone(String model, Double value, String producer, Double osVersion) {
+        super(model, producer, value);
         this.osVersion = osVersion;
-        List<String> installedApps = new ArrayList<>();
-    }*/
+        freeAppsList = new ArrayList<Application>();
+    }
 
     public Phone(String model, String producer, Double value, Double balance) {
         super(model, producer, value);
         this.balance = balance;
+        freeAppsList = new ArrayList<Application>();
     }
 
-
-    public void installApp(String appName, Double appPrice) {
+    public void installApp(Application applicationToInstall, Double appPrice) {
         if (balance >= appPrice) {
-            installedApps.add(new Application(appName, appPrice, DEFAULT_APP_VERSION));
+            installedAppsList.add(applicationToInstall);
             balance -= appPrice;
-            System.out.println(installedApps);
-            System.out.println("your balance is: " + balance);
+            if (applicationToInstall.appPrice == 0.0d) {
+                freeAppsList.add(applicationToInstall);
+            }
+            System.out.println(installedAppsList);
         } else {
             System.out.println("your balance is not enough to buy this app");
-            System.out.println("your balance is: " + balance);
         }
+        System.out.println("your balance is: " + balance);
     }
 
- /*   public void installAnnApp(String appName, Double appVersion) {
-        System.out.println(appName + " " + " is installed");
-        installedApps.add((installApp.(appName););
-    }*/
-
-    public boolean isInstalled(List appName) {
-        for (Application installedApps : this.installedApps) {
-            if (installedApps == appName) {
-                return true;
-            }
+    public String isInstalledByName(Application app) {
+        if (installedAppsList.contains(app.appName)) {
+            return app.appName + " is already installed on your device";
         }
-        return false;
+        return app.appName + " is not installed on your device";
     }
+
+    public String isInstalled(Object app) {
+        if (installedAppsList.contains(app)) {
+            return app + " is already installed on your device";
+        }
+        return app + " is not installed on your device";
+    }
+
+    public String printFreeApps() {
+        return "Free apps installed on your device: " + freeAppsList;
+    }
+
+//    public Double getValueOfApplication() {
+//        Double sumValue = 0.0d;
+//        int size = this.installedAppsList.size();
+//        for (int j = 0; j < size; j++) {
+//            sumValue += this.installedAppsList[j].appPrice;
+//        }
+//        return sumValue;
+//    }
+
 }
-
-

@@ -44,7 +44,7 @@ public abstract class Car extends Devices implements Sellable{
                 value.equals(honda.value);
     }
 
-    public Boolean wasPreviousOwner(Human owner){
+    public boolean wasPreviousOwner(Human owner){
         if(owners.contains(owner.firstName)){
             return true;
         }
@@ -64,12 +64,9 @@ public abstract class Car extends Devices implements Sellable{
     }
 
     public String transactionCounter(){
-        int size = owners.size();
-        int transaction = (size)/2;
+        int transaction = owners.size();
         return "Car was sold "+ transaction +" times";
     }
-
-
 
     public void sell (Human seller, Human buyer, Double price)throws Exception {
         owners.add(seller.firstName);
@@ -86,13 +83,21 @@ public abstract class Car extends Devices implements Sellable{
             throw new Exception("Car does not belongs to seller");
         }
         else{
-            owners.add(buyer.firstName);
+            int size = owners.size();
+            if(size >= 1){
+                owners.remove((owners.size()- 1));
+                owners.add(buyer.firstName);
+            }
             buyer.addCar(this);
             seller.removeCar(this);
             buyer.cash -= price;
             seller.cash += price;
             System.out.println("Transaction complete");
             System.out.println("owners of car: " + owners);
+            System.out.println(size + "rozmiar");
+            System.out.println(size);
         }
+
+
     }
 }

@@ -3,12 +3,12 @@ import com.company.Sellable;
 import com.company.Human;
 
 public abstract class Devices implements Sellable {
-    final String model;
-    final String producer;
+    public String model;
+    public String producer;
     public int yearOfProduction;
     public Double value;
 
-    public Devices(String model,String producer, Double value) {
+    public Devices(String model, String producer,  Double value) {
         this.model = model;
         this.producer = producer;
         this.value = value;
@@ -19,7 +19,6 @@ public abstract class Devices implements Sellable {
     }
 
     public abstract String turnOn();
-
 
     @Override
     public void sell(Human seller, Human buyer, Double price)throws Exception {

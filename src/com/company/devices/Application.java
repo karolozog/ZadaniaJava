@@ -13,4 +13,23 @@ public class Application {
     }
 
     public String toString() { return appName + " " +appVersion  + " " + appPrice;}
+
+
+    public String getAppName() {
+        return appName;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
+    public Double getAppPrice() {
+        return appPrice;
+    }
+
+    public void setAppPrice(Double appPrice) {
+        this.appPrice = appPrice;
+    }
+
+
 }

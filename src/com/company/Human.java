@@ -39,7 +39,6 @@ public class Human  {
         this.goods = new Devices[DEFAULT_GOODSSIZE];
     }
 
-
     public Double getSalary() {
         if (previousCheck != null) {
             long diff = ChronoUnit.SECONDS.between(previousCheck, LocalDate.now());
@@ -80,8 +79,6 @@ public class Human  {
     public Car getCar(Integer parkingLotNumber) {
         return this.garage[parkingLotNumber];
     }
-
-
 
     public Double getValueOfGarage() {
         Double sumValue = 0.0d;

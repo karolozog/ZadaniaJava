@@ -21,7 +21,7 @@ public abstract class Animal implements Feedable,Sellable {
     Double weight;
     public String name;
     private Boolean alive;
-    public final FoodType foodType;
+    public FoodType foodType;
     Double foodWeight;
 
 
@@ -40,11 +40,7 @@ public abstract class Animal implements Feedable,Sellable {
         return name + " " + species + " " + weight;
     }
 
-    //    @Override
-//    public void feed() {
-//        this.weight += 0.5;
-//        System.out.println("dzięki za żarcie");
-//    }
+
     @Override
     public void takeForAWalk() {
         this.weight -= 0.5d;
@@ -82,11 +78,17 @@ public abstract class Animal implements Feedable,Sellable {
     public void feed(Double weight, FoodType foodType, Double foodWeight) {
         switch (foodType) {
             case ALL:
-                this.weight += foodType.foodBodyRatio * foodWeight;
-                break;
             case MEET:
+            case CROPS:
                 this.weight += foodType.foodBodyRatio * foodWeight;
                 break;
+        }
+    }
+
+    public void getFoodType(Double weight, FoodType foodType, Double foodWeight) {
+        switch (foodType) {
+            case ALL:
+            case MEET:
             case CROPS:
                 this.weight += foodType.foodBodyRatio * foodWeight;
                 break;
