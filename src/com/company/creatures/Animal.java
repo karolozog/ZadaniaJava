@@ -4,19 +4,6 @@ import com.company.Sellable;
 
 public abstract class Animal implements Feedable,Sellable {
 
-    public enum FoodType {
-        MEET(0.7),
-        CROPS(0.3),
-        ALL(0.5);
-
-        final Double foodBodyRatio;
-
-        private FoodType(Double foodBodyRatio) {
-            this.foodBodyRatio = foodBodyRatio;
-        }
-
-    }
-
     public String species;
     Double weight;
     public String name;
@@ -66,26 +53,23 @@ public abstract class Animal implements Feedable,Sellable {
         }
     }
 
-    public void getFoodType(Double foodWeight, FoodType foodType) {
+    public void getFoodType(Double weight, FoodType foodType, Double foodWeight) {
         if (this.foodType != foodType)
-            System.out.println("Ough! Disgusting, gimme other food");
+            System.out.println("I want my favourite food!!");
         else {
-            this.weight += foodType.foodBodyRatio * foodWeight;
-            System.out.println("thx for food");
+                switch (foodType) {
+                case ALL:
+                case MEET:
+                case CROPS:
+                    this.weight += foodType.foodBodyRatio * foodWeight;
+                    System.out.println("thx for food!!");
+                    System.out.println(this.species + " weight is:  " + this.weight);
+                    break;
+                }
         }
     }
 
     public void feed(Double weight, FoodType foodType, Double foodWeight) {
-        switch (foodType) {
-            case ALL:
-            case MEET:
-            case CROPS:
-                this.weight += foodType.foodBodyRatio * foodWeight;
-                break;
-        }
-    }
-
-    public void getFoodType(Double weight, FoodType foodType, Double foodWeight) {
         switch (foodType) {
             case ALL:
             case MEET:

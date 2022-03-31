@@ -12,8 +12,6 @@ public enum Country {
     public Double GDP;
 
 
-
-
     private Country(String language, String countryCode, Double GDP){
         this.language = language;
         this.countryCode = countryCode;
@@ -21,7 +19,10 @@ public enum Country {
 
 
     }
-    public Double gpdinToPln(){
+    public Double gpdInToPln(){
         return this.GDP * 4.27;
     }
+
+
+
 }
