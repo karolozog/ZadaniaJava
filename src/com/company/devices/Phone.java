@@ -25,14 +25,14 @@ public class Phone extends Devices {
         return this.producer + "Hello mate";
     }
 
-    public Phone(String model, Double value, String producer, Double osVersion) {
-        super(model, producer, value);
+    public Phone(String model, Double value, String producer,int yearOfProduction,  Double osVersion) {
+        super(model, producer, value, yearOfProduction);
         this.osVersion = osVersion;
         freeAppsList = new ArrayList<Application>();
     }
 
-    public Phone(String model, String producer, Double value, Double balance) {
-        super(model, producer, value);
+    public Phone(String model, String producer, Double value,int yearOfProduction, Double balance) {
+        super(model, producer, value, yearOfProduction);
         this.balance = balance;
         freeAppsList = new ArrayList<Application>();
     }

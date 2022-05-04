@@ -1,16 +1,15 @@
 package com.company.devices;
 
-import com.company.Human;
+import com.company.creatures.Human;
 import com.company.Sellable;
 
 import java.util.ArrayList;
 
 public abstract class Car extends Devices implements Sellable{
-    Double fuelLevel;
     ArrayList owners = new ArrayList<>();
 
     public Car(String model, String producer, int yearOfProduction, Double value) {
-        super(model,producer, value);
+        super(model,producer, value, yearOfProduction);
         this.yearOfProduction = yearOfProduction;
     }
 
@@ -68,6 +67,7 @@ public abstract class Car extends Devices implements Sellable{
         return "Car was sold "+ transaction +" times";
     }
 
+    @Override
     public void sell (Human seller, Human buyer, Double price)throws Exception {
         owners.add(seller.firstName);
         boolean name = true;
@@ -97,7 +97,5 @@ public abstract class Car extends Devices implements Sellable{
             System.out.println(size + "rozmiar");
             System.out.println(size);
         }
-
-
     }
 }
