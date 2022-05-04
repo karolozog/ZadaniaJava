@@ -1,4 +1,6 @@
 package com.company;
+import com.company.creatures.Human;
+
 import java.util.ArrayList;
 import java.util.List;
 

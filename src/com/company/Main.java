@@ -1,9 +1,7 @@
 package com.company;
 
-import com.company.creatures.Animal;
-import com.company.creatures.FarmAnimal;
-import com.company.creatures.FoodType;
-import com.company.creatures.Pet;
+import com.company.creatures.*;
+import com.company.devices.*;
 
 import java.util.*;
 
@@ -31,65 +29,63 @@ public class Main {
 //        dog.takeForAWalk();
 //        System.out.println("Pies waży " + dog.getWeight())
 
-//        Car honda = new Diesel("Civic", "Honda", 1995, 500.0d);
-//        Car hyundai = new Diesel("Pony", "Hyundai", 1992, 540.0d);
-//        Car BMW = new Electric("f20", "BMW", 2012, 11000.0d);
-//        Car Opel = new LPG("Vectra", "Opel", 1996, 560.0d);
-//        Car Audi = new Diesel("a4", "Audi", 2001, 870.0d);
-//
-//        Human anna = new Human("anna","małecka", 600.3, 4);
-//        anna.cash = 10000.0;
-//
-//        Human jacek = new Human("jacek", "placek", 1000.0, 2);
-//        jacek.cash = 20000.0;
-//
-//        Human kamil = new Human("kamil", "kowalski", 20000.0, 3);
-//
-//        anna.addCar(hyundai);
-//        anna.addCar(honda);
-//        anna.addCar(BMW);
-//        anna.addCar(Opel);
-//
-//        System.out.println("After transaction seller gots: " + jacek.cash);
-//        System.out.println("After transaction seller gots: " + anna.cash);
-//        System.out.println(anna.garage[0]);
-//        System.out.println(anna.garage[1]);
-//
-//        System.out.println(anna.hasACar(honda));
-//        System.out.println(anna.garage[0]);
-//        System.out.println(anna.garage[1]);
-//        System.out.println(jacek.garage[0]);
-//
-//        honda.sell(anna, jacek, 500.0d);
-//        honda.sell( jacek,anna, 500.0d);
-//        honda.sell(anna, jacek, 500.0d);
-//        honda.sell( jacek,anna, 500.0d);
-//        honda.sell(anna, jacek, 500.0d);
-//
-//        System.out.println(honda.didSaleCar(anna, kamil));
-//        System.out.println(honda.transactionCounter());
+       Car honda = new Diesel("Civic", "Honda", 1995, 500.0d);
+        Car hyundai = new Diesel("Pony", "Hyundai", 1992, 540.0d);
+        Car BMW = new Electric("f20", "BMW", 2012, 11000.0d);
+        Car Opel = new LPG("Vectra", "Opel", 1996, 560.0d);
+        Car Audi = new Diesel("a4", "Audi", 2001, 870.0d);
 
-//        Human seller = new Human("karol", "ozog", 300.0, 4);
-//        seller.cash = 10.0;
-//        seller.setCar(honda,  0);
-//        seller.setCar(hyundai, 1);
-//        System.out.println(seller.getCar(1));
-//        System.out.println("value of garage is: " + seller.getValueOfGarage());
+        Human anna = new Human("Anna", "Małecka", 200.0 , 300.0, 5, 23, 2);
+        anna.cash = 10000.0;
 
-//        Application mario = new Application("mario", 10.0, 1.1); ;
-//        Application tanks = new Application("tanks", 7.0, 2.1);
-//        Application tic = new Application("tic", 3.1, 2.1);
-//        Application contra = new Application("contra", 0.0, 8.0);
-//        Phone nokia = new Phone("edge", "Nokia", 350.0, 25.0);
-//        nokia.installApp(mario, 10.0);
-//        nokia.installApp(tanks, 12.0);
-//        nokia.installApp(tic, 1.0);
-//        nokia.installApp(contra, 0.0);
-//        System.out.println( nokia.isInstalled("mario"));
-//        System.out.println(nokia.printFreeApps());
-//        nokia.operationSystem = Phone.OpertionSystem.WINDOWS_MOBILE;
+        Human jacek = new Human("Jacek", "Placek", 1000.0 , 2300.3, 4, 22, 2);
+        jacek.cash = 20000.0;
+
+        Human kamil = new Human("Kamil", "Kowalski", 20000.0 , 320.4, 4, 1, 21);
+
+        anna.addCar(hyundai);
+        anna.addCar(honda);
+        anna.addCar(BMW);
+        anna.addCar(Opel);
+
+        System.out.println("After transaction seller gots: " + jacek.cash);
+        System.out.println("After transaction seller gots: " + anna.cash);
+        System.out.println(anna.garage[0]);
+        System.out.println(anna.garage[1]);
+
+        System.out.println(anna.hasACar(honda));
+        System.out.println(anna.garage[0]);
+        System.out.println(anna.garage[1]);
+        System.out.println(jacek.garage[0]);
+
+        honda.sell(anna, jacek, 500.0d);
+        honda.sell( jacek,anna, 500.0d);
+        honda.sell(anna, jacek, 500.0d);
+        honda.sell( jacek,anna, 500.0d);
+        honda.sell(anna, jacek, 500.0d);
+
+        System.out.println(honda.didSaleCar(anna, kamil));
+        System.out.println(honda.transactionCounter());
+
+        Human seller = new Human("karol", "ozog", 3900.0, 4590.3, 4, 3, 2);
+        seller.cash = 10.0;
+        seller.setCar(honda,  0);
+        seller.setCar(hyundai, 1);
+        System.out.println(seller.getCar(1));
 
 
+        Application mario = new Application("mario", 10.0, 1.1); ;
+        Application tanks = new Application("tanks", 7.0, 2.1);
+        Application tic = new Application("tic", 3.1, 2.1);
+        Application contra = new Application("contra", 0.0, 8.0);
+        Phone nokia = new Phone("edge", "Nokia", 350.0, 2001,  25.0);
+        nokia.installApp(mario, 10.0);
+        nokia.installApp(tanks, 12.0);
+        nokia.installApp(tic, 1.0);
+        nokia.installApp(contra, 0.0);
+        System.out.println( nokia.isInstalled("mario"));
+        System.out.println(nokia.printFreeApps());
+        nokia.operationSystem = Phone.OpertionSystem.WINDOWS_MOBILE;
 
 
 
@@ -109,29 +105,29 @@ public class Main {
         countries[3] = Country.BAHAMAS;
         countries[4] = Country.BELGIUM;
 
-//        Map<Country, Double> areaMap = new HashMap<>();
-//        areaMap.put(Country.UK, 242.5);
-//        areaMap.put(Country.AUSTRIA, 83.9);
-//        areaMap.put( Country.AZEJBERDJAN, 86.6);
-//        areaMap.put(Country.BAHAMAS, 13.9);
-//        areaMap.put(Country.BELGIUM, 30.7);
-//
-//        System.out.println(areaMap.get(Country.BELGIUM));
-//
-//        Set<Map.Entry<Country, Double>> entrySet = areaMap.entrySet();
-//        List<Map.Entry<Country, Double>> list = new ArrayList<>(entrySet);
-//        Collections.sort(list, new Comparator<Map.Entry<Country, Double>>() {
-//            @Override
-//            public int compare(Map.Entry<Country, Double> o1, Map.Entry<Country, Double> o2) {
-//                return o1.getValue().compareTo(o2.getValue());
-//            }
-//        });
-//
-//        System.out.println("Map sorted from smallest to biggest country: ");
-//
-//        list.forEach(s->{
-//            System.out.println(s.getValue()+ "\t" + s.getKey());
-//        });
+        Map<Country, Double> areaMap = new HashMap<>();
+        areaMap.put(Country.UK, 242.5);
+        areaMap.put(Country.AUSTRIA, 83.9);
+        areaMap.put( Country.AZEJBERDJAN, 86.6);
+        areaMap.put(Country.BAHAMAS, 13.9);
+        areaMap.put(Country.BELGIUM, 30.7);
+
+        System.out.println(areaMap.get(Country.BELGIUM));
+
+        Set<Map.Entry<Country, Double>> entrySet = areaMap.entrySet();
+        List<Map.Entry<Country, Double>> list = new ArrayList<>(entrySet);
+        Collections.sort(list, new Comparator<Map.Entry<Country, Double>>() {
+            @Override
+            public int compare(Map.Entry<Country, Double> o1, Map.Entry<Country, Double> o2) {
+                return o1.getValue().compareTo(o2.getValue());
+            }
+        });
+
+        System.out.println("Map sorted from smallest to biggest country: ");
+
+        list.forEach(s->{
+            System.out.println(s.getValue()+ "\t" + s.getKey());
+        });
 
 
         Map<String, Country> capitalMap = new HashMap<>();
@@ -177,19 +173,33 @@ public class Main {
     animalsByFood.put(FoodType.CROPS, herbivores);
         System.out.println(animalsByFood);
 
+List<Devices> urzadzenia = new LinkedList<>();
+urzadzenia.add(hyundai);
+urzadzenia.add(honda);
+urzadzenia.add(nokia);
+urzadzenia.add(BMW);
+urzadzenia.add(Opel);
 
+urzadzenia.sort(new Comparator<Devices>() {
+    @Override
+    public int compare(Devices o1, Devices o2) {
+        return o1.producer.compareTo(o2.producer);
+    }
+});
 
+urzadzenia.sort(new DevicesComparator());
 
-
-
-
-
-
-
-
-
-
-
+        System.out.println(urzadzenia);
+        System.out.println(anna.getSalary());
+        System.out.println(anna.setSalary(100.00));
+        System.out.println(anna.garage[0]);
+        System.out.println(anna.garage[1]);
+        System.out.println(anna.garage[2]);
+        System.out.println(anna.garage[3]);
+        System.out.println(anna.garage[4]);
+        System.out.println(anna.hasFreeSpaceForAnimal());
+        System.out.println(nokia.isInstalled(mario));
+        System.out.println(anna.hasACar(Audi));
     }
 }
 
