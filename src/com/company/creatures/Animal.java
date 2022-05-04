@@ -1,5 +1,4 @@
 package com.company.creatures;
-import com.company.Human;
 import com.company.Sellable;
 
 public abstract class Animal implements Feedable,Sellable {

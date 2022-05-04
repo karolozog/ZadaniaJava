@@ -30,10 +30,10 @@ public class Pet extends Animal implements Feedable {
             this.foodType = FoodType.ALL;
             this.weight = DEAFULT_DOG_WEIGHT;
         } else if (species.equals("fellis")) {
-//            while(foodType != FoodType.MEET){
-//                System.out.println("Fellis wants meet!!");
-//                break;
-//            }
+            while(foodType != FoodType.MEET){
+                System.out.println("Fellis wants meet!!");
+                break;
+            }
             this.foodType = FoodType.MEET;
             this.weight = DEAULT_CAT_WEIGHT;
         } else if (species.equals("cow")) {
